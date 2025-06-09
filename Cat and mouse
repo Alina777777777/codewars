@@ -1,0 +1,23 @@
+function catMouse(map,moves){
+if (!map.includes('C') || !map.includes('m')) {
+return "boring without two animals";
+}
+const rows = map.split('\n'); 
+for (let i = 0; i < rows.length; i++) {
+for (let j = 0; j < rows[i].length; j++) {
+if (rows[i][j] === 'C') {
+catRow = i;
+catCol = j;
+} else if (rows[i][j] === 'm') {
+mouseRow = i;
+mouseCol = j;
+}
+}
+}
+const distance = Math.abs(catRow - mouseRow) + Math.abs(catCol - mouseCol);
+if (distance <= moves) {
+return "Caught!";
+} else {
+return "Escaped!";
+}
+}
